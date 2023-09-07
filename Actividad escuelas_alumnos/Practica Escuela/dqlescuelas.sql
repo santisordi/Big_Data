@@ -22,9 +22,22 @@ CREATE TABLE IF NOT EXISTS alumnos (
   PRIMARY KEY (id),
   FOREIGN KEY (id_escuela) REFERENCES escuelas(id));
 
+  /*Encontramos que la definición de la tabla alumnos
+no permitía NULL en la columna email.
+Lo modificamos con ALTER TABLE*/
+
+USE c23668_escuelas;
+ALTER TABLE alumnos
+MODIFY email varchar(45) DEFAULT NULL;
+
 
 #DML  
 INSERT INTO `escuelas` VALUES (1,'Normal 1','Quilmes','Buenos Aires',250),(2,'Gral. San Martín','San Salvador','Jujuy',100),(3,'Belgrano','Belgrano','Córdoba',150),(4,'EET Nro 2','Avellaneda','Buenos Aires',500),(5,'Esc. N° 2 Tomás Santa Coloma','Capital Federal','Buenos Aires',250),(6,'Carlos Guido y Spano','Capital Federal','Buenos Aires',1250),(7,'Paula Albarracín de Sarmiento','Tres Arroyos','Buenos Aires',1100),(8,'Escuela Nro.392','Sijan','Catamarca',250),(9,'General Las Heras','Las Heras','Córdoba',1500),(10,'E.E.P. Nro.852','El Sauzalito','Chaco',452);
+
+USE c23668_escuelas;
+SELECT * FROM escuelas;
+
+USE c23668_escuelas;
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (8, 216219, 'Fanchon Kettel', 1, 6, 'fkettel0@hp.com');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (1, 182251, 'Valerie Mound', 5, 6, 'vmound1@addthis.com');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (8, 164662, 'Pren Lenglet', 10, 2, 'plenglet2@forbes.com');
@@ -32,6 +45,12 @@ insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (3, 
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (5, 237472, 'Lily Copas', 4, 1, 'lcopas4@nsw.gov.au');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (6, 232002, 'Damien Mulvy', 6, 4, 'dmulvy5@sakura.ne.jp');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (9, 168409, 'Gard Hudson', 5, 1, 'ghudson6@chron.com');
+
+-- Inserto  los que no se llegaron a insertar antes
+--No inserto todo de vuelta porque se van a duplicar los
+--que sí se habían insertado
+
+USE c23668_escuelas;
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (7, 184096, 'Chrissie Hebden', 8, 5, null);
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (1, 208120, 'Almira Faro', 1, 1, null);
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (5, 193366, 'Cori Cantero', 4, 3, 'ccantero9@utexas.edu');
@@ -75,3 +94,8 @@ insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (3, 
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (1, 196483, 'Lotte Summerbell', 5, 3, 'lsummerbell1b@walmart.com');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (1, 171121, 'Carmelle McKerlie', 1, 6, 'cmckerlie1c@engadget.com');
 insert into alumnos (id_escuela, legajo, nombre, nota, grado, email) values (7, 172940, 'Ivor Ewells', 9, 1, '');
+
+--Verifico lo cargado
+
+USE c23668_escuelas;
+SELECT * FROM alumnos

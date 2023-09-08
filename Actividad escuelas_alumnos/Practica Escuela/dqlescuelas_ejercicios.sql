@@ -2,24 +2,38 @@
 
 # 1) Seleccionar todos los datos de la tabla alumnos
 
+SELECT *
+FROM c23668_escuelas.alumnos;
 
 
 # 2) Seleccionar solamente el legajo y el nombre de los alumnos:
 
 
+SELECT legajo, nombre
+FROM c23668_escuelas.alumnos;
+
 # 3) Mostrar todos los datos de aquellos alumnos aprobados 
 #(con notas mayores o iguales a 7)
+
+SELECT *
+FROM c23668_escuelas.alumnos
+WHERE nota >= 7;
 
 
 # 4) Mostrar el id y el nombre de aquellas escuelas cuya 
 # capacidad sea inferior a 200 (no mostrar la columna capacidad).
 
-
+SELECT id, nombre
+FROM c23668_escuelas.escuelas
+WHERE capacidad < 200;
 
 # 5) Mostrar el nombre y la nota de aquellos alumnos cuya nota 
 # se encuentre entre 7 y 10 (inclusive)
 
-
+SELECT nombre, 
+         nota 
+FROM c23668_escuelas.alumnos
+WHERE nota >=7 and nota <=10;
 
 # 6) Repetir el ejercicio anterior, utilizando BETWEEN
 
